@@ -222,7 +222,7 @@ def process(image):
 def run_api():
     base64_img = request.json["data"]
 
-    print(base64_img)
+    # print(base64_img)
     image = stringToRGB(base64_img)
     image = process(image)
     base64_img = imgToBase64(image)
@@ -230,7 +230,7 @@ def run_api():
 
 if __name__ == "__main__":
     model = EyeDetectionModelV0()
-    model.load_state_dict(torch.load("./eye_model_28_10.pth", map_location=torch.device(device)))
+    model.load_state_dict(torch.load("model/eye_model_28_10.pth", map_location=torch.device(device)))
     model.to(device)
 
     mp_face_mesh = mp.solutions.face_mesh
@@ -246,5 +246,4 @@ if __name__ == "__main__":
     count = 0
     check_l = 0
     check_r = 0
-    f =  open("log.logs", "w")
     app.run(debug=True)
