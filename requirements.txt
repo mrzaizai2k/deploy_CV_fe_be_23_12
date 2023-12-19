@@ -1,0 +1,9 @@
+numpy
+opencv-contrib-python
+torch
+torchvision
+mediapipe
+flask
+requests
+pillow
+flask_cors
